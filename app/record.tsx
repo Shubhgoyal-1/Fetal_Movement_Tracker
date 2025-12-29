@@ -1,12 +1,22 @@
 import { View, Text, Pressable, ImageBackground } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Stopwatch from "@/components/StopWatch";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import StepsModal from "@/components/StepsModal";
 import RecordBackground from '@/assets/images/RecordBackground.png'
 import Divider from "@/components/Divider";
+import { useLocalSearchParams, useRouter } from "expo-router";
 const Record = () => {
+    const { showInfo } = useLocalSearchParams();
+    const router = useRouter()
     const [showModal, setShowModal] = useState(false)
+
+    useEffect(() => {
+        if (showInfo === "true") {
+            setShowModal(true);
+        }
+    }, [showInfo]);
+
     return (
         <>
             <Divider />
@@ -23,7 +33,7 @@ const Record = () => {
                         </View>
                         <View className="pb-8">
                             <Pressable onPress={() => setShowModal(true)}>
-                                <Text numberOfLines={2} className="text-center underline text-3xl font-medium">
+                                <Text numberOfLines={2} className="text-center underline text-2xl font-medium">
                                     What if I am not getting{"\n"}enough kicks?
                                 </Text>
                             </Pressable>
@@ -31,7 +41,10 @@ const Record = () => {
                     </SafeAreaView>
                     <StepsModal
                         visible={showModal}
-                        onClose={() => setShowModal(false)}
+                        onClose={() => {
+                            setShowModal(false);
+                            router.setParams({ showInfo: "false" })
+                        }}
                     />
                 </View>
             </ImageBackground>

@@ -1,11 +1,14 @@
-import { Stack } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 import "./global.css"
 import { Pressable } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
 const InfoIcon = () => {
+  const router = useRouter()
+
   return (
     <Pressable onPress={() => {
+      router.setParams({ showInfo: "true" })
     }}>
       <Feather
         name="info"

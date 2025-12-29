@@ -35,12 +35,12 @@ const Stopwatch = () => {
         if (!startTimeRef.current) return;
 
         const endTime = Date.now();
-        const duration = Math.max(1, Math.round(elapsedSeconds / 60));
+        // const duration = Math.max(1, Math.round(elapsedSeconds / 60));
 
         const session: SessionRecord = {
             startTime: startTimeRef.current,
             endTime,
-            duration,
+            duration:elapsedSeconds,
         };
 
         await addSession(session);
@@ -59,7 +59,7 @@ const Stopwatch = () => {
     const seconds = (elapsedSeconds % 60)
         .toString()
         .padStart(2, "0");
-        
+
     return (
         <View className="items-center justify-center mt-6">
 
