@@ -59,6 +59,7 @@ const Stopwatch = () => {
     const seconds = (elapsedSeconds % 60)
         .toString()
         .padStart(2, "0");
+        
     return (
         <View className="items-center justify-center mt-6">
 

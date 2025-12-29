@@ -31,30 +31,28 @@ const StepsModal = ({ visible, onClose }: StepsModalProps) => {
       onRequestClose={onClose}
     >
       <View className="flex-1 bg-black/40 justify-center p-4">
-        <View className="bg-white rounded-3xl px-5 pt-5 pb-8 max-h-[80%]">
-          <Pressable
-            onPress={onClose}
-            className="absolute right-4 top-4 w-10 h-10 rounded-full items-center justify-center border border-gray-300"
-          >
-            <Feather name="x" size={20} color="#000" />
-          </Pressable>
-
-          <View className="flex-row items-center mb-4">
-            <Text className="text-2xl mr-2">👣</Text>
-            <Text className="text-xl font-extrabold text-black">
-              Steps to count fetal kicks
-            </Text>
+        <Pressable
+          onPress={onClose}
+          className="w-20 h-20 self-end rounded-full items-center mb-2 justify-center border border-gray-300"
+        >
+          <Feather name="x" size={30} color="#000" />
+        </Pressable>
+        <View className="bg-transparent border border-white rounded-2xl p-1 max-h-[80%]">
+           <View className="flex-row items-center mb-2 bg-white p-2 rounded-2xl">
+              <Text className="text-[28px] mr-2">👣</Text>
+              <Text className="text-[28px] font-extrabold text-black">
+                Steps to count fetal kicks
+              </Text>
           </View>
-          
-          <ScrollView showsVerticalScrollIndicator={false}>
+
+          <ScrollView className="rounded-2xl" showsVerticalScrollIndicator={false}>
             {steps.map((step, index) => (
               <View
                 key={index}
-                className={`p-4 rounded-xl mb-3 ${
-                  index % 2 === 0 ? "bg-gray-100" : "bg-gray-200"
-                }`}
+                className={`p-4 ${index % 2 === 0 ? "bg-white" : "bg-gray-200"
+                  }`}
               >
-                <Text className="text-base font-semibold text-black">
+                <Text className="text-[17px] font-semibold text-black">
                   {index + 1}. {step}
                 </Text>
               </View>
