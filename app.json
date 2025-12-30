@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Fetal_Movement_Tracker",
-    "slug": "Fetal_Movement_Tracker",
+    "slug": "fetal-movement-tracker-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -19,7 +19,8 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.ishubhgoyal.fetalmovementtrackerapp"
     },
     "web": {
       "bundler": "metro",
@@ -44,6 +45,12 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "9a06cab6-9110-4e07-a1cd-b6d7f54c4c69"
+      }
     }
   }
 }
